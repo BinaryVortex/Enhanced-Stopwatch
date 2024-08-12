@@ -1,0 +1,130 @@
+/* styles.css */
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Arial', sans-serif;
+    overflow: hidden;
+}
+
+.background-effect {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: url('tech.jpg') no-repeat center center fixed;
+    background-size: cover;
+    filter: brightness(0.6);
+    z-index: -1;
+    animation: subtle-shift 15s infinite alternate ease-in-out;
+}
+
+.gradient-overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(120deg, rgba(0, 255, 255, 0.2), rgba(0, 0, 255, 0.2));
+    mix-blend-mode: overlay;
+    z-index: -2;
+    animation: gradient-shift 10s infinite alternate ease-in-out;
+}
+
+@keyframes subtle-shift {
+    0% {
+        transform: scale(1);
+    }
+    100% {
+        transform: scale(1.03);
+    }
+}
+
+@keyframes gradient-shift {
+    0% {
+        background-position: 0% 50%;
+    }
+    100% {
+        background-position: 100% 50%;
+    }
+}
+
+.container {
+    position: relative;
+    background: rgba(0, 0, 0, 0.95);
+    padding: 30px;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 0 40px rgba(0, 255, 255, 0.8);
+    width: 90%;
+    max-width: 300px;
+    border: 2px solid #00ffff;
+    transform: scale(1);
+    transition: transform 0.5s ease, box-shadow 0.5s ease;
+}
+
+.container:hover {
+    transform: scale(1.07);
+    box-shadow: 0 0 50px rgba(0, 255, 255, 1);
+}
+
+.stopwatch {
+    color: #00ffff;
+    font-size: 2.5em;
+    text-shadow: 0 0 15px #00ffff, 0 0 30px #00ffff, 0 0 45px #00ffff;
+}
+
+.buttons {
+    margin-top: 30px;
+}
+
+button {
+    margin: 8px;
+    padding: 6px 12px;
+    font-size: 0.8em;
+    color: white;
+    background-color: #007bff;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out, background-color 0.3s ease-in-out;
+}
+
+button:hover {
+    background-color: #0056b3;
+    transform: scale(1.15);
+    box-shadow: 0 0 15px #00ffff;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 12px;
+    background-color: #333;
+    border-radius: 8px;
+    margin-top: 25px;
+    overflow: hidden;
+}
+
+#progress {
+    height: 100%;
+    width: 0%;
+    background-color: #00ffff;
+    transition: width 1s linear;
+}
+
+/* Media Queries for Mobile Responsiveness */
+@media only screen and (max-width: 480px) {
+    .container {
+        padding: 20px;
+    }
+
+    .stopwatch {
+        font-size: 2em;
+    }
+
+    button {
+        margin: 5px;
+        padding: 5px 10px;
+        font-size: 0.7em;
+    }
+}
